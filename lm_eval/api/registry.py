@@ -1,7 +1,6 @@
 import logging
 from typing import Callable, Dict, Union
 
-import evaluate as hf_evaluate
 
 from lm_eval.api.model import LM
 
@@ -121,6 +120,7 @@ def register_metric(**args):
 
 
 def get_metric(name: str, hf_evaluate_metric=False) -> Callable:
+    from lm_eval.evaluator import evaluate as hf_evaluate
     if not hf_evaluate_metric:
         if name in METRIC_REGISTRY:
             return METRIC_REGISTRY[name]

@@ -6,13 +6,13 @@ fewshot_split: dev
 num_fewshot: 0
 fewshot_config:
   sampler: first_n
-output_type: multiple_choice
+output_type: generate_until
 doc_to_text: "{{input_formatted}}"
 doc_to_choice: ["A", "B", "C", "D"]
 doc_to_target: answer
 num_fewshot: 0
 metric_list:
-  - metric: acc_norm
+  - metric: acc
     aggregation: !function agg_functions.agg_gpirt_mmlu
     higher_is_better: true
 metadata:
